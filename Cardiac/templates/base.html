@@ -1,0 +1,31 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Heart Health System{% endblock %}</title>
+    <!-- Bootstrap CSS for layout -->
+    <!-- Custom Medical CSS -->
+    <link rel="stylesheet" href="{% static 'css/junior.css' %}" />
+  </head>
+  <body>
+    <!-- Main Content Area -->
+    <div class="container mt-4">
+      {% if messages %} {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+      {% endfor %} {% endif %} {% block content %}
+      <!-- Content from other pages will be injected here -->
+      {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-light text-center">
+      <div class="container">
+        <span class="text-muted">© 2026 Heart Disease Prediction Project</span>
+      </div>
+    </footer>
+
+    <script src=""></script>
+  </body>
+</html>

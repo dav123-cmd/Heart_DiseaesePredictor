@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block content %}
+<section class="result-section">
+  <h2>Heart Disease Risk Result</h2>
+
+  <div class="result-box">
+    {% if prediction == 1 %}
+    <p class="text-danger">High Risk of Heart Disease</p>
+    {% else %}
+    <p class="text-success">Low Risk of Heart Disease</p>
+    {% endif %} {% if disease_prob and no_disease_prob %}
+    <p>Probability of Heart Disease: {{ disease_prob|floatformat:2 }}%</p>
+    <p>Probability of No Disease: {{ no_disease_prob|floatformat:2 }}%</p>
+    {% endif %}
+  </div>
+
+  <h3>Submitted Data</h3>
+  <ul>
+    <li>Age: {{ patient.age }}</li>
+    <li>Sex: {{ patient.sex }}</li>
+    <li>Chest Pain Type: {{ patient.cp }}</li>
+    <li>Blood Pressure: {{ patient.trestbps }}</li>
+    <li>Cholesterol: {{ patient.chol }}</li>
+    <li>Max Heart Rate: {{ patient.thalach }}</li>
+    <!-- Add other fields if you want --><a
+      href="{% url 'home' %}"
+      class="btn btn-primary mt-3"
+      >Home</a
+    >
+  </ul>
+</section>
+{% endblock %}
